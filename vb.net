@@ -1,0 +1,21 @@
+  # Update the window
+  pygame.display.update()
+
+  # Check for game over
+  if game_close:
+      window.fill(white)
+      display_score(score)
+      message("You lost! Press Q-Quit or C-Play Again", red)
+      pygame.display.update()
+
+      while game_close == True:
+          for event in pygame.event.get():
+              if event.type == pygame.KEYDOWN:
+                  if event.key == pygame.K_q:
+                      game_over = True
+                      game_close = False
+                  if event.key == pygame.K_c:
+                      game_loop()
+
+  # Set the speed of the game
+  clock.tick(snake_speed)
